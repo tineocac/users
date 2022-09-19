@@ -40,8 +40,8 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading }) => {
 
     return (
         <form className="form-container" onSubmit={handleSubmit(submit)}>
-            <h1>New User</h1>
-            <div className="input-container input-name">
+            <h1 className="form-title" >New User</h1>
+            <div className="input-container">
                 <label htmlFor="first_name"><i className="fa-solid fa-user"></i></label>
                 <input type="text" id="first_name" placeholder="first name"  {...register("first_name")} />
                 <label htmlFor="last_name"></label>
@@ -59,9 +59,9 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading }) => {
                 <label htmlFor="birthday"><i className="fa-solid fa-cake-candles"></i></label>
                 <input type="date" id="birthday"  {...register("birthday")} />
             </div>
-            <div className="Buttons">
-                <button>{userSelected ? 'Update' : 'Submit'}</button>
-                <button type="Button" onClick={clear}>Clear</button>
+            <div className="buttons">
+                <button className="button">{userSelected ? 'Update' : 'Submit'}</button>
+                <button className="button clear" type="Button" onClick={clear}>Clear</button>
             </div>
 
         </form>

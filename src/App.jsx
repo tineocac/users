@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react'
 import './assets/css/App.css'
 import UsersForm from './components/UsersForm'
 import UsersList from './components/UsersList'
+import './assets/css/form.css'
+import './assets/css/list.css'
+import './assets/css/buttons.css'
 
 function App() {
 
