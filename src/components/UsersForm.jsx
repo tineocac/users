@@ -41,11 +41,11 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading }) => {
     return (
         <form className="form-container" onSubmit={handleSubmit(submit)}>
             <h1>New User</h1>
-            <div className="input-container">
+            <div className="input-container input-name">
                 <label htmlFor="first_name"><i className="fa-solid fa-user"></i></label>
                 <input type="text" id="first_name" placeholder="first name"  {...register("first_name")} />
                 <label htmlFor="last_name"></label>
-                <input type="text" id="last_name" placeholder="last name"  {...register("last_name")} />
+                <input className="input-last_name" type="text" id="last_name" placeholder="last name"  {...register("last_name")} />
             </div>
             <div className="input-container">
                 <label htmlFor="email"><i className="fa-solid fa-envelope"></i></label>
