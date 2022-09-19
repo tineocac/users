@@ -6,18 +6,23 @@ import UsersList from './components/UsersList'
 
 function App() {
 
-  const [ users, setUsers] = useState([])
+  const [users, setUsers] = useState([])
 
-  const [ userSelected , setUserSelected] = useState(null)
+  const [userSelected, setUserSelected] = useState(null)
 
-  useEffect( () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
     axios.get('https://users-crud1.herokuapp.com/users/')
-    .then( res => setUsers(res.data))
+      .then(res => setUsers(res.data))
+      .finally(() => setIsLoading(false))
+
   }, [])
 
   const getUsers = () => {
     axios.get('https://users-crud1.herokuapp.com/users/')
-    .then( res => setUsers(res.data))
+      .then(res => setUsers(res.data))
+      .finally(() => setIsLoading(false))
   }
 
   const selectUser = (user) => {
@@ -27,11 +32,20 @@ function App() {
   const deselectUser = () => {
     setUserSelected(null)
   }
-  
+
   return (
     <div className="App">
-      <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser}/>
-      <UsersList users={users} selectUser={selectUser} getUsers={getUsers}/>
+      {isLoading ? 
+        <>
+          <p className='loader'>Loading...</p>
+          <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
+          <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} />
+        </> :
+        <>
+          <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
+          <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} />
+        </>
+      }
     </div>
   )
 }

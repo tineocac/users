@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
+const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading }) => {
 
     const { register, handleSubmit, reset } = useForm();
 
@@ -23,6 +23,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
                 .catch(error => console.log(error.response));
         }
         clear()
+        setIsLoading(true)
     }
 
     const clear = () => {
@@ -42,21 +43,21 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
             <h1>New User</h1>
             <div className="input-container">
                 <label htmlFor="first_name"><i className="fa-solid fa-user"></i></label>
-                <input type="text" id="first_name" placeholder="first name" required {...register("first_name")} />
+                <input type="text" id="first_name" placeholder="first name"  {...register("first_name")} />
                 <label htmlFor="last_name"></label>
-                <input type="text" id="last_name" placeholder="last name" required {...register("last_name")} />
+                <input type="text" id="last_name" placeholder="last name"  {...register("last_name")} />
             </div>
             <div className="input-container">
                 <label htmlFor="email"><i className="fa-solid fa-envelope"></i></label>
-                <input type="text" id="email" placeholder="email" required {...register("email")} />
+                <input type="text" id="email" placeholder="email"  {...register("email")} />
             </div>
             <div className="input-container">
                 <label htmlFor="password"><i className="fa-solid fa-lock"></i></label>
-                <input type="password" id="password" placeholder="password" required {...register("password")} />
+                <input type="password" id="password" placeholder="password"  {...register("password")} />
             </div>
             <div className="input-container">
                 <label htmlFor="birthday"><i className="fa-solid fa-cake-candles"></i></label>
-                <input type="date" id="birthday" {...register("birthday")} />
+                <input type="date" id="birthday"  {...register("birthday")} />
             </div>
             <div className="Buttons">
                 <button>{userSelected ? 'Update' : 'Submit'}</button>

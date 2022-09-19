@@ -3,4 +3,17 @@
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
+    position: relative;
 }
+
+.loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-content: center;
+    font-size: 2rem;
+
+} 

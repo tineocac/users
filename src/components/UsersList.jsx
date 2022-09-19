@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const UsersList = ({users, selectUser, getUsers}) => {
+const UsersList = ({users, selectUser, getUsers, setIsLoading}) => {
 
     const deleteUser = (id) => {
         axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
         .then( () => getUsers())
+        setIsLoading(true)
     }
 
     return (
