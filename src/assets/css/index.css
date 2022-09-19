@@ -12,6 +12,7 @@
 #root{
   min-height: 100vh;
   display: flex;
+  background: linear-gradient(rgba(5, 7, 12, 0.1), rgba(5, 7, 12, 0.8));
 }
 
 
