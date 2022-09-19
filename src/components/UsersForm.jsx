@@ -16,7 +16,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
         if (userSelected) {
             axios.put(`https://users-crud1.herokuapp.com/users/${data.id}/`, data)
                 .then(() => getUsers())
-                .catch(error => console.log(error.response))
+
         } else {
             axios.post(`https://users-crud1.herokuapp.com/users/`, data)
                 .then(() => getUsers())
@@ -38,7 +38,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form className="form-container" onSubmit={handleSubmit(submit)}>
             <h1>New User</h1>
             <div className="input-container">
                 <label htmlFor="first_name"><i className="fa-solid fa-user"></i></label>
@@ -58,8 +58,11 @@ const UsersForm = ({ getUsers, userSelected, deselectUser }) => {
                 <label htmlFor="birthday"><i className="fa-solid fa-cake-candles"></i></label>
                 <input type="date" id="birthday" {...register("birthday")} />
             </div>
-            <button>{userSelected ? 'Update' : 'Submit'}</button>
-            <button type="Button" onClick={clear}>Clear</button>
+            <div className="Buttons">
+                <button>{userSelected ? 'Update' : 'Submit'}</button>
+                <button type="Button" onClick={clear}>Clear</button>
+            </div>
+
         </form>
     );
 };
