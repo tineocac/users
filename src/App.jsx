@@ -41,8 +41,6 @@ function App() {
       {isLoading ? 
         <>
           <p className='loader'>Loading...</p>
-          <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
-          <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} />
         </> :
         <>
           <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
