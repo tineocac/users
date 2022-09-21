@@ -6,6 +6,7 @@ import UsersList from './components/UsersList'
 import './assets/css/form.css'
 import './assets/css/list.css'
 import './assets/css/buttons.css'
+import Testing from './components/Testing'
 
 function App() {
 
@@ -45,6 +46,8 @@ function App() {
         <>
           <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
           <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} />
+          <Testing/>
+
         </>
       }
     </div>

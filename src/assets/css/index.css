@@ -13,3 +13,16 @@
   display: flex;
   background: linear-gradient(rgba(5, 7, 12, 0.1), rgba(73, 91, 105, 0.8));
 }
+
+.button-modal{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: .3em;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 .25em;
+  background-color:  rgba(73, 91, 105, 0.8);
+  text-shadow: 2px 2px 1px black;
+  border-radius: 1em
+};
