@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const UsersList = ({ users, selectUser, getUsers, setIsLoading }) => {
+const UsersList = ({ users, selectUser, getUsers, setIsLoading, open}) => {
 
     const deleteUser = (id) => {
         axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
@@ -17,7 +17,8 @@ const UsersList = ({ users, selectUser, getUsers, setIsLoading }) => {
                         <p>{user.email}</p>
                         <b><i className="fa-solid fa-cake-candles"></i>{user.birthday}</b>
                         <div className="buttons">
-                            <button className="button" onClick={() => selectUser(user)}>Edit</button>
+                            <button className="button" onClick={() => {selectUser(user) 
+                            open()} }>Edit</button>
                             <button className="button clear" onClick={() => deleteUser(user.id)}>Delete</button>
                         </div>
                     </li>

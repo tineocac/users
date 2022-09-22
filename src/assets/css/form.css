@@ -1,11 +1,13 @@
 .form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 1em;
   background-image: url(https://i.pinimg.com/564x/3d/61/83/3d6183655f3d714cea3fa41ba2b25771.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 1em;
-  margin: 1em;
-  box-shadow: 5px 5px 1px black;
 }
 
 .form-title {
@@ -21,5 +23,6 @@ input {
   text-shadow: 2px 2px 2px black;
   box-shadow: 2px 2px 2px black;
 }
+
 
 

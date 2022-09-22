@@ -6,11 +6,19 @@ import UsersList from './components/UsersList'
 import './assets/css/form.css'
 import './assets/css/list.css'
 import './assets/css/buttons.css'
-import Testing from './components/Testing'
+import { Button } from 'reactstrap'
 
 function App() {
 
   const [users, setUsers] = useState([])
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const open = () => {
+    setIsOpen(!isOpen)
+  }
+
+  console.log(isOpen);
 
   const [userSelected, setUserSelected] = useState(null)
 
@@ -44,10 +52,9 @@ function App() {
           <p className='loader'>Loading...</p>
         </> :
         <>
-          <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} />
-          <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} />
-          <Testing/>
-
+          <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} isOpen={isOpen} open={open}/>
+          <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} open={open}/>
+          <Button className='button-modal' onClick={open}>+</Button>
         </>
       }
     </div>
