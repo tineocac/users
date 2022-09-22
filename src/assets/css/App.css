@@ -23,4 +23,7 @@
     text-shadow: 2px 2px 1px black;
 }
 
+.filter{
+    filter: blur(.5em);
+}
 

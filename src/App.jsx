@@ -7,6 +7,7 @@ import './assets/css/form.css'
 import './assets/css/list.css'
 import './assets/css/buttons.css'
 import { Button } from 'reactstrap'
+import filter from './helpers/filter'
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div id='App' className="App">
       {isLoading ? 
         <>
           <p className='loader'>Loading...</p>
@@ -54,7 +55,11 @@ function App() {
         <>
           <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} isOpen={isOpen} open={open}/>
           <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} open={open}/>
-          <Button className='button-modal' onClick={open}>+</Button>
+          <Button className='button-modal' onClick={() => {
+            open()
+            filter()
+            deselectUser()
+            }}>+</Button>
         </>
       }
     </div>

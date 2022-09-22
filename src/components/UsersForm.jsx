@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Modal } from "reactstrap";
+import filter from "../helpers/filter";
 
 const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen, open }) => {
 
@@ -26,6 +27,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
         clear()
         setIsLoading(true)
         open()
+        filter()
     }
 
     const clear = () => {
@@ -66,7 +68,7 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
                 <div className="buttons">
                     <button className="button">{userSelected ? 'Update' : 'Submit'}</button>
                     <button className="button clear" type="Button" onClick={clear}>Clear</button>
-                    <button className="quit" type="button" onClick={open} >x</button>
+                    <button className="quit" type="button" onClick={() => {open(), filter(), clear()}} >x</button>
                 </div>
             </form>
         </Modal>
