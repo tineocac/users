@@ -4,7 +4,7 @@ import filter from "../helpers/filter";
 const UsersList = ({ users, selectUser, getUsers, setIsLoading, open }) => {
 
     const deleteUser = (id) => {
-        axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+        axios.delete(`http://144.126.218.162:9000/users/${id}/`)
             .then(() => getUsers())
         setIsLoading(true)
     }

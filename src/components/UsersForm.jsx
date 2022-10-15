@@ -16,11 +16,11 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
 
     const submit = (data) => {
         if (userSelected) {
-            axios.put(`https://users-crud1.herokuapp.com/users/${data.id}/`, data)
+            axios.put(`http://144.126.218.162:9000/users/${data.id}/`, data)
                 .then(() => getUsers())
 
         } else {
-            axios.post(`https://users-crud1.herokuapp.com/users/`, data)
+            axios.post(`http://144.126.218.162:9000/users/`, data)
                 .then(() => getUsers())
                 .catch(error => console.log(error.response));
         }

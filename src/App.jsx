@@ -26,14 +26,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    axios.get('https://users-crud1.herokuapp.com/users/')
+    axios.get('http://144.126.218.162:9000/users/')
       .then(res => setUsers(res.data))
       .finally(() => setIsLoading(false))
 
   }, [])
 
   const getUsers = () => {
-    axios.get('https://users-crud1.herokuapp.com/users/')
+    axios.get('http://144.126.218.162:9000/users/')
       .then(res => setUsers(res.data))
       .finally(() => setIsLoading(false))
   }
