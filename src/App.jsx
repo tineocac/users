@@ -9,6 +9,7 @@ import './assets/css/buttons.css'
 import { Button } from 'reactstrap'
 import filter from './helpers/filter'
 import ballLoader from "./assets/svg/dragonballonlineglobal_94263.svg"
+import userImg from './assets/svg/icons8-son-goku.svg'
 
 function App() {
 
@@ -64,7 +65,9 @@ function App() {
             open()
             filter()
             deselectUser()
-            }}>+</Button>
+            }}>
+            <img src={userImg} alt="" />
+            </Button>
         </>
       }
     </div>

@@ -19,8 +19,14 @@
   border-radius: 1em;
   padding: 1em;
   gap: 1em;
+  transition: 0.3s ease;
 }
 
-.selected-list{
+.selected-list {
   font-size: 5rem;
+}
+
+.li-container:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
 }

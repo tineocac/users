@@ -40,5 +40,6 @@
 
 .filter{
     filter: blur(.5em);
+    width: 100%;
 }
 
