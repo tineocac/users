@@ -8,6 +8,7 @@ import './assets/css/list.css'
 import './assets/css/buttons.css'
 import { Button } from 'reactstrap'
 import filter from './helpers/filter'
+import ballLoader from "./assets/svg/dragonballonlineglobal_94263.svg"
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     setIsOpen(!isOpen)
   }
 
-  console.log(isOpen);
+  // console.log(isOpen);
 
   const [userSelected, setUserSelected] = useState(null)
 
@@ -50,8 +51,12 @@ function App() {
     <div id='App' className="App">
       {isLoading ? 
         <>
-          <p className='loader'>Loading...</p>
-        </> :
+      <div className='loader-container'>
+        <img className='ball-loader' src={ballLoader} alt="" />
+        <p >Loading...</p>
+      </div>
+
+      </> :
         <>
           <UsersForm getUsers={getUsers} userSelected={userSelected} deselectUser={deselectUser} setIsLoading={setIsLoading} isOpen={isOpen} open={open}/>
           <UsersList users={users} selectUser={selectUser} getUsers={getUsers} setIsLoading={setIsLoading} open={open}/>

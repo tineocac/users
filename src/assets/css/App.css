@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.loader{
+.loader-container{
     position: absolute;
     top: 0;
     left: 0;
@@ -17,6 +17,21 @@
     font-size: 2rem;
     background: linear-gradient( rgba(5,7,12, 0.75), rgba(5,7,12, 0.1));
 }
+
+.ball-loader{
+    margin: 0 auto;
+    animation: ballLoader 1.5s infinite linear
+}
+
+@keyframes ballLoader {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 
 .fa-solid{
     padding: .3em;
