@@ -10,7 +10,8 @@
 .li-container {
   display: flex;
   list-style: none;
-  width: 250px;
+  word-wrap: break-word;
+  width: 300px;
   flex-direction: column;
   justify-content: center;
   background-image: url(https://i.pinimg.com/564x/1b/d9/f5/1bd9f5ecb89ce238d9932d22243cbcf3.jpg);

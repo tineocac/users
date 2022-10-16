@@ -14,6 +14,8 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
         }
     }, [userSelected])
 
+
+
     const submit = (data) => {
         if (userSelected) {
             axios.put(`http://144.126.218.162:9000/users/${data.id}/`, data)
@@ -21,13 +23,18 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
 
         } else {
             axios.post(`http://144.126.218.162:9000/users/`, data)
-                .then(() => getUsers())
+                .then(() => {
+                    getUsers()
+                    open()
+                    filter()
+                    setIsLoading(true)
+                })
                 .catch(error => console.log(error.response));
         }
-        clear()
-        setIsLoading(true)
-        open()
-        filter()
+
+
+
+
     }
 
     const clear = () => {
@@ -40,12 +47,15 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
         })
 
         deselectUser()
-        
     }
+
+
 
     return (
         <Modal isOpen={isOpen}>
-            <form className="form-container" onSubmit={handleSubmit(submit)}>
+            <form className="form-container"
+            //  onSubmit={handleSubmit(submit)}
+            >
                 <h1 className="form-title" >New User</h1>
                 <div className="input-container">
                     <label htmlFor="first_name"><i className="fa-solid fa-user"></i></label>
@@ -66,9 +76,12 @@ const UsersForm = ({ getUsers, userSelected, deselectUser, setIsLoading, isOpen,
                     <input type="date" id="birthday"  {...register("birthday")} />
                 </div>
                 <div className="buttons">
-                    <button className="button">{userSelected ? 'Update' : 'Submit'}</button>
+                    <button
+                        // type="button"
+                        onClick={handleSubmit(submit)}
+                        className="button">{userSelected ? 'Update' : 'Submit'}</button>
                     <button className="button clear" type="Button" onClick={clear}>Clear</button>
-                    <button className="quit" type="button" onClick={() => {open(), filter(), clear()}} >x</button>
+                    <button className="quit" type="button" onClick={() => { open(), filter(), clear() }} >x</button>
                 </div>
             </form>
         </Modal>
